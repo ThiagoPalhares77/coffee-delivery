@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Hero } from '../components/Hero'
+import { OurCoffes } from '../components/OurCoffes'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
+      <OurCoffes />
     </div>
   )
 }
