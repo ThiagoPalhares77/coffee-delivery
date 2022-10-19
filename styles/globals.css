@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  font-family: 'Roboto', 'Baloo 2', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {

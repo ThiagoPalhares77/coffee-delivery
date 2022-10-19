@@ -26,6 +26,9 @@ module.exports = {
       background: '#FAFAFA',
       white: '#FFFFFF'
     },
+    fontFamily: {
+      baloo2: ['"Baloo 2"', 'sans-serif']
+    },
     extend: {}
   },
   plugins: []
