@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import React from 'react'
 import { CoffeCard } from './CoffeCard'
+import { products } from '../data/products'
 
 export const OurCoffes = () => {
   return (
@@ -8,8 +8,10 @@ export const OurCoffes = () => {
       <h1 className="mb-[54px] font-baloo2  text-base-subtitle text-3xl">
         Nossos cafés
       </h1>
-      <div>
-        <CoffeCard />
+      <div className="grid sm:grid-cols-4 gap-8 mb-2">
+        {products.map((product) => (
+          <CoffeCard key={product.id} product={product} />
+        ))}
       </div>
     </div>
   )
