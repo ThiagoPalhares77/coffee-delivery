@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 export const Header = () => {
   return (
-    <div className="mx-40 my-8">
+    <div className="mx-auto my-8">
       <div className="flex justify-between">
         <div className="cursor-pointer">
           <Link href={'/'}>

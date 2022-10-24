@@ -82,7 +82,7 @@ export const products = [
   
   {
     id: 11,
-    span: ["TRADICIONAL", "COM LEITE", "GELADO"],
+    span: ["TRADICIONAL", "ÁLCOOLICO", "GELADO"],
     name: "Cubano",
     description: "Drink gelado de café expresso com rum, creme de leite e hortelã",
     image: 'Cubano.png',
