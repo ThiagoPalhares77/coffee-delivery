@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Minus, Plus, Trash } from 'phosphor-react'
+import Link from 'next/link'
 
 export const SelectedCoffees = () => {
   return (
@@ -53,9 +54,11 @@ export const SelectedCoffees = () => {
             <span className="text-xl font-bold text-base-subtitle">29,70</span>
           </div>
 
-          <button className="bg-yellow hover:bg-yellow-dark text-white w-full p-3 rounded-md mb-10">
-            CONFIRMAR PEDIDO
-          </button>
+          <Link href={'/Confirmation'}>
+            <button className="bg-yellow hover:bg-yellow-dark text-white w-full p-3 rounded-md mb-10">
+              CONFIRMAR PEDIDO
+            </button>
+          </Link>
         </div>
       </div>
     </div>
