@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { CartItem } from '../contexts/CartContext'
+import { formatMoney } from './FormatterFunctions'
 
 interface CoffeItemsCardProps {
   coffee: CartItem
@@ -21,7 +22,7 @@ export const CoffeItemsCard = ({ coffee }: CoffeItemsCardProps) => {
         <div className="flex space-x-[95px]">
           <h2 className="text-base-subtitle mb-2">{coffee.name}</h2>
           <div>
-            <span>{coffee.price}</span>
+            <span>{formatMoney(coffee.price)}</span>
           </div>
         </div>
         <div className="flex">

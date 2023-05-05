@@ -72,8 +72,8 @@ export const CoffeCard = ({ product }: ProductProps) => {
         </p>
       </div>
       <div className="h-[38px] mt-[33px] mb-5 mx-4 flex items-center justify-center">
-        <span className="font-extrabold font-baloo2 text-2xl text-base-text">
-          9,90
+        <span className="font-extrabold font-baloo2 text-xl text-base-text whitespace-nowrap">
+          R$ 9,90
         </span>
         <div className="ml-[23px] mr-2 h-full bg-base-button gap-2 rounded-md whitespace-nowrap">
           <button
