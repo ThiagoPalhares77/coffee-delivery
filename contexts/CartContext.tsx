@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useState } from 'react'
 import { Product } from '../components/CoffeCard'
-import { produce } from 'immer'
 
 export interface CartItem extends Product {
   quantity: number
@@ -30,15 +29,21 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       (cartItem) => cartItem.id === product.id
     )
 
-    const newCart = produce(cartItems, (draft) => {
-      if (productIsAlreadyInCart === -1) {
-        draft.push(product)
-      } else {
-        draft[productIsAlreadyInCart].quantity += product.quantity
-      }
-    })
-    setCartItems(newCart)
-    console.log(newCart)
+    let updatedCartItems: CartItem[]
+
+    if (productIsAlreadyInCart === -1) {
+      updatedCartItems = [...cartItems, product]
+    } else {
+      updatedCartItems = cartItems.map((item) => {
+        if (item.id === product.id) {
+          const newQuantity = item.quantity + product.quantity
+          return { ...item, quantity: newQuantity }
+        }
+        return item
+      })
+    }
+
+    setCartItems(updatedCartItems)
   }
 
   function removeCoffee(id: number) {
