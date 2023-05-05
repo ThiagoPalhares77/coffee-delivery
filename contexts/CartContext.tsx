@@ -10,7 +10,8 @@ export interface CartContextType {
   cartItems: CartItem[]
   cartQuantity: number
   addNewProductToCart: (product: CartItem) => void
-  changeCartCard: (cartItemId: number, type: 'increase' | 'decrease') => void
+  changeCartCard: (id: number, type: 'increase' | 'decrease') => void
+  removeCoffee: (id: number) => void
 }
 
 interface CartContextProviderProps {
@@ -40,9 +41,14 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     console.log(newCart)
   }
 
-  function changeCartCard(cartItemId: number, type: 'increase' | 'decrease') {
+  function removeCoffee(id: number) {
+    const updatedCartItems = cartItems.filter((item) => item.id !== id)
+    setCartItems(updatedCartItems)
+  }
+
+  function changeCartCard(id: number, type: 'increase' | 'decrease') {
     const updatedCartItems = cartItems.map((item) => {
-      if (item.id === cartItemId) {
+      if (item.id === id) {
         const newQuantity =
           type === 'increase' ? item.quantity + 1 : item.quantity - 1
         return { ...item, quantity: newQuantity }
@@ -55,7 +61,13 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addNewProductToCart, cartQuantity, changeCartCard }}
+      value={{
+        cartItems,
+        addNewProductToCart,
+        cartQuantity,
+        changeCartCard,
+        removeCoffee
+      }}
     >
       {children}
     </CartContext.Provider>

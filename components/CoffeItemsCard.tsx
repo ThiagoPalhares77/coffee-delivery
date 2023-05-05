@@ -9,7 +9,7 @@ interface CoffeItemsCardProps {
 }
 
 export const CoffeItemsCard = ({ coffee }: CoffeItemsCardProps) => {
-  const { changeCartCard } = useCart()
+  const { changeCartCard, removeCoffee } = useCart()
 
   function handleIncreaseCoffee() {
     changeCartCard(coffee.id, 'increase')
@@ -19,6 +19,9 @@ export const CoffeItemsCard = ({ coffee }: CoffeItemsCardProps) => {
     changeCartCard(coffee.id, 'decrease')
   }
 
+  function handleRemoveCoffee() {
+    removeCoffee(coffee.id)
+  }
   return (
     <div className="px-10 pt-10 mb-12 flex gap-5">
       <div>
@@ -46,7 +49,10 @@ export const CoffeItemsCard = ({ coffee }: CoffeItemsCardProps) => {
               <Plus onClick={handleIncreaseCoffee} size={14} color="#8047F8" />
             </button>
           </div>
-          <button className="bg-base-button p-2 gap-1 flex content-center items-center rounded-md">
+          <button
+            onClick={handleRemoveCoffee}
+            className="bg-base-button p-2 gap-1 flex content-center items-center rounded-md"
+          >
             <Trash size={14} color="#8047F8" />
             <span className="text-xs text-base-text">REMOVER</span>
           </button>
