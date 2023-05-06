@@ -30,7 +30,7 @@ export default function Confirmation() {
             </div>
             <div className="pt-10 pl-10 flex gap-3 items-center">
               <div className="bg-yellow rounded-full w-8 h-8 flex items-center justify-center">
-                <Image src={Timer} color="white" />
+                <Image src={Timer} color="white" alt={''} />
               </div>
               <div className="w-[310px]">
                 <p className="text-base-text">
@@ -56,7 +56,7 @@ export default function Confirmation() {
             </div>
           </div>
         </div>
-        <Image width={492} height={293} src={'/ImgConfirmation.png'} />
+        <Image width={492} height={293} src={'/ImgConfirmation.png'} alt={''} />
       </div>
     </>
   )
