@@ -11,6 +11,7 @@ export interface CartContextType {
   addNewProductToCart: (product: CartItem) => void
   changeCartCard: (id: number, type: 'increase' | 'decrease') => void
   removeCoffee: (id: number) => void
+  cartCalculation: number
 }
 
 interface CartContextProviderProps {
@@ -64,6 +65,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems(updatedCartItems)
   }
 
+  const cartCalculation = cartItems.reduce((acc, item) => {
+    return acc + item.price * item.quantity
+  }, 0)
+
   return (
     <CartContext.Provider
       value={{
@@ -71,7 +76,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         addNewProductToCart,
         cartQuantity,
         changeCartCard,
-        removeCoffee
+        removeCoffee,
+        cartCalculation
       }}
     >
       {children}
