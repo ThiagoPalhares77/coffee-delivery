@@ -9,7 +9,7 @@ interface CoffeItemsCardProps {
 }
 
 export const CoffeItemsCard = ({ coffee }: CoffeItemsCardProps) => {
-  const { changeCartCard, removeCoffee } = useCart()
+  const { changeCartCard, removeCoffee, cartQuantity } = useCart()
 
   function handleIncreaseCoffee() {
     changeCartCard(coffee.id, 'increase')
@@ -22,8 +22,9 @@ export const CoffeItemsCard = ({ coffee }: CoffeItemsCardProps) => {
   function handleRemoveCoffee() {
     removeCoffee(coffee.id)
   }
+
   return (
-    <div className="px-10 pt-10 mb-12 flex gap-5">
+    <div className="px-10 pt-10 mb-8 flex gap-5">
       <div>
         <Image
           width="64"
@@ -41,8 +42,12 @@ export const CoffeItemsCard = ({ coffee }: CoffeItemsCardProps) => {
         </div>
         <div className="flex">
           <div className="p-2 h-8 mr-2 bg-base-button gap-2 rounded-md whitespace-nowrap flex items-center content-center">
-            <button className="ml-2 mr-1 my-3">
-              <Minus onClick={handleDecreaseCoffee} size={14} color="#8047F8" />
+            <button
+              disabled={coffee.quantity <= 1}
+              onClick={handleDecreaseCoffee}
+              className="ml-2 mr-1 my-3"
+            >
+              <Minus size={14} color="#8047F8" />
             </button>
             <span>{coffee.quantity}</span>
             <button className="ml-1 mr-2 my-3 ">
