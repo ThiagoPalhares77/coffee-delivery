@@ -3,7 +3,7 @@ import { FaMapMarkerAlt } from 'react-icons/fa'
 import { BiDollar } from 'react-icons/bi'
 import Timer from '/public/timer.svg'
 
-export default function Confirmation() {
+export default function Confirmacao() {
   return (
     <>
       <div className="mt-20">
