@@ -24,7 +24,7 @@ export const Header = () => {
             <Image src={MapPing} alt="" />
             <p className="text-purple-dark text-sm">Porto Alegre, RS</p>
           </div>
-          <Link href={'completeOrder'}>
+          <Link href={'Formulario'}>
             <a>
               <div className="bg-yellow-light w-[39px] h-[38px] flex items-center justify-center rounded-md cursor-pointer relative">
                 {cartQuantity >= 1 && (

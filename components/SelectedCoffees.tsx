@@ -4,7 +4,7 @@ import { useCart } from '../hooks/useCart'
 import { CoffeItemsCard } from './CoffeItemsCard'
 import { formatMoney } from './FormatterFunctions'
 
-export const SelectedCoffees = () => {
+export const SelectedCoffees = ({ onConfirmOrder }) => {
   const { cartItems, cartCalculation } = useCart()
   console.log(cartItems)
   const orderPrice = cartCalculation + 3.5
@@ -51,11 +51,13 @@ export const SelectedCoffees = () => {
                 </span>
               </div>
 
-              <Link href={'/Confirmation'}>
-                <button className="bg-yellow hover:bg-yellow-dark text-white w-full p-3 rounded-md mb-10">
-                  CONFIRMAR PEDIDO
-                </button>
-              </Link>
+              <button
+                type="button"
+                onClick={onConfirmOrder}
+                className="bg-yellow hover:bg-yellow-dark text-white w-full p-3 rounded-md mb-10"
+              >
+                CONFIRMAR PEDIDO
+              </button>
             </div>
           </>
         )}
