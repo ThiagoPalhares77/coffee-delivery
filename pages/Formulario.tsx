@@ -5,7 +5,6 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
-import { useRouter } from 'next/router'
 
 import { useCart } from '../hooks/useCart'
 import { CoffeItemsCard } from '../components/CoffeItemsCard'
@@ -13,6 +12,7 @@ import { formatMoney } from '../components/FormatterFunctions'
 import { Input } from '../components/Input'
 import MapPinYellow from '../public/mappinyellow.svg'
 import { InputRadio } from '../components/InputRadio'
+import { useRouter } from 'next/router'
 
 const paymentMethodObject = {
   credit: {
@@ -56,7 +56,7 @@ const confirmationFormSchema = z.object({
   })
 })
 
-type ConfirmationFormData = z.infer<typeof confirmationFormSchema>
+export type ConfirmationFormData = z.infer<typeof confirmationFormSchema>
 
 export default function Formulario() {
   const {
@@ -66,14 +66,15 @@ export default function Formulario() {
   } = useForm<ConfirmationFormData>({
     resolver: zodResolver(confirmationFormSchema)
   })
-  const router = useRouter()
+
+  const { push } = useRouter()
 
   function handleConfirmation(data: ConfirmationFormData) {
-    const queryString = Object.entries(data)
-      .map(([key, value]) => `${key}=${value}`)
-      .join('&')
-
-    router.push(`/Confirmacao${queryString}`)
+    console.log('data antes de enviar:', data)
+    push({
+      pathname: '/Confirmacao',
+      query: { data: JSON.stringify(data) }
+    })
   }
 
   const { cartItems, cartCalculation } = useCart()
