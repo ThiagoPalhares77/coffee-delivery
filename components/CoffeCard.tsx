@@ -40,7 +40,7 @@ export const CoffeCard = ({ product }: ProductProps) => {
   }
 
   return (
-    <div className=" bg-base-card rounded-md rounded-tr-[36px] rounded-bl-[36px] mb-10">
+    <div className="bg-base-card rounded-md rounded-tr-[36px] rounded-bl-[36px] mb-10 sm:mx-0 mx-5">
       <div className="flex justify-center ">
         <div className="mt-[-1.25rem]">
           <Image
@@ -93,7 +93,7 @@ export const CoffeCard = ({ product }: ProductProps) => {
         </div>
 
         <button
-          className=" bg-purple-dark flex items-center justify-center ml-2 w-full rounded-md h-full"
+          className="bg-purple-dark flex items-center justify-center ml-2 sm:w-full w-20 rounded-md h-full"
           onClick={handleAddProductToCart}
         >
           <Image alt="" src={ShoppCartWhite} width={22} height={22} />
