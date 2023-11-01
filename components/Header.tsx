@@ -10,7 +10,7 @@ export const Header = () => {
   const { cartQuantity } = useCart()
 
   return (
-    <div className="mx-auto my-8">
+    <div className="sm:mx-auto mx-3 my-8">
       <div className="flex justify-between">
         <div className="cursor-pointer">
           <Link href={'/'}>

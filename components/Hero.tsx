@@ -8,7 +8,7 @@ import timer from '../public/timer.svg'
 
 export const Hero = () => {
   return (
-    <div className="mt-[94px] mb-16 flex flex-col lg:flex-row lg:items-center">
+    <div className="sm:mx-0 mx-3 mt-[94px] mb-16 flex flex-col lg:flex-row lg:items-center">
       <div className="mb-16 mr-14 lg:mb-0 lg:mr-0">
         <div className="mb-16 lg:w-[580px]">
           <h1 className="mb-4 font-baloo2 text-[48px] text-base-title font-extrabold leading-[62px]">
