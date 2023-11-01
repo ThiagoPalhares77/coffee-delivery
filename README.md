@@ -1,6 +1,6 @@
 # Coffee Delivery Project
 
-Project developed to solve the challenge of the ignite course. I chose to use Next.js, TailwindCSS, and React-hook-form as some of the frameworks.
+Responsive project developed to solve the challenge of the ignite course. I chose to use Next.js, TailwindCSS, and React-hook-form as some of the frameworks.
 
 ## Overview
 
