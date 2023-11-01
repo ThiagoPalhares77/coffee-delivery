@@ -18,5 +18,11 @@ The project simulates a coffee sales website, where the cart is made using React
 
 ## Screenshots
 
-![Home](screenshot.1.png)
-![Form](screenshot.2.png)
+<div style="display: flex; justify-content: space-between;">
+  <div style="flex: 1; max-width: 45%;">
+    <img src="/public/screenshot.1.png" alt="Home" style="max-width: 100%;">
+  </div>
+  <div style="flex: 1; max-width: 45%;">
+    <img src="/public/screenshot.2.png" alt="Form" style="max-width: 100%;">
+  </div>
+</div>
