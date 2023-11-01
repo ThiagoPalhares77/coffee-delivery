@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import Logo from '../public/Logo.svg'
+import Logo from '../public/logo.svg'
 import MapPing from '../public/mappin.svg'
 import ShopCart from '../public/cart.svg'
 import Link from 'next/link'
