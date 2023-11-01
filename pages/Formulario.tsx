@@ -82,9 +82,12 @@ export default function Formulario() {
   const orderPrice = cartCalculation + 3.5
 
   return (
-    <form className="flex flex-row" onSubmit={handleSubmit(handleConfirmation)}>
-      <div>
-        <div className="flex flex-col mr-8">
+    <form
+      className="flex sm:flex-row flex-col"
+      onSubmit={handleSubmit(handleConfirmation)}
+    >
+      <section>
+        <div className="flex flex-col mr-8 bg">
           <h1 className="text-base-subtitle font-baloo2 font-bold text-lg mt-10 mb-[15px]">
             Complete seu pedido
           </h1>
@@ -112,7 +115,7 @@ export default function Formulario() {
                     error={errors.street}
                   />
                 </div>
-                <div className=" flex gap-3">
+                <div className="flex gap-3 sm:flex-row flex-col">
                   <Input
                     type="number"
                     labelObj={{ id: 'number', label: 'Número' }}
@@ -121,8 +124,8 @@ export default function Formulario() {
                   />
                   <div className="relative inline-block">
                     <Input
-                      className="appearance-none bg-base-input rounded-md h-[42px] w-[300px] pl-2"
-                      labelObj={{ id: 'moreInfo', label: 'Complemeento' }}
+                      className="sm:appearance-none bg-base-input rounded-md sm:h-[42px] sm:w-[300px] pl-2"
+                      labelObj={{ id: 'moreInfo', label: 'Complemento' }}
                       {...register('moreInfo')}
                       error={errors.moreInfo}
                     />
@@ -131,24 +134,32 @@ export default function Formulario() {
                     </span>
                   </div>
                 </div>
-                <div className="flex gap-3 w-full">
-                  <Input
-                    labelObj={{ id: 'district', label: 'Bairro' }}
-                    {...register('district')}
-                    error={errors.district}
-                  />
-                  <Input
-                    className="appearance-none bg-base-input rounded-md w-[250px] h-[42px] pl-2 "
-                    labelObj={{ id: 'city', label: 'Bairro' }}
-                    {...register('city')}
-                    error={errors.city}
-                  />
-                  <Input
-                    className="w-[30px]"
-                    labelObj={{ id: 'UF', label: 'UF' }}
-                    {...register('UF')}
-                    error={errors.UF}
-                  />
+                <div className="flex flex-col sm:flex-row gap-3 w-full">
+                  <div>
+                    <Input
+                      labelObj={{ id: 'district', label: 'Bairro' }}
+                      {...register('district')}
+                      error={errors.district}
+                    />
+                  </div>
+                  <div className="flex gap-2 w-full">
+                    <div className="w-full">
+                      <Input
+                        className="appearance-none bg-base-input rounded-md sm:w-[250px] w-full h-[42px] pl-2 "
+                        labelObj={{ id: 'city', label: 'Cidade' }}
+                        {...register('city')}
+                        error={errors.city}
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        className="w-[50px]"
+                        labelObj={{ id: 'UF', label: 'UF' }}
+                        {...register('UF')}
+                        error={errors.UF}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -165,7 +176,7 @@ export default function Formulario() {
             O pagamento é feito na entrega. Escolha a forma que deseja pagar
           </p>
 
-          <section className="flex mt-8 mx-10 gap-3 text-xs text-base-text">
+          <div className="flex mt-8 mx-10 gap-3 text-xs text-base-text">
             {Object.entries(paymentMethodObject).map(
               ([key, { icon, label }]) => (
                 <InputRadio
@@ -179,14 +190,14 @@ export default function Formulario() {
                 />
               )
             )}
-          </section>
+          </div>
           {errors.paymentMethod && (
             <span className="ml-10 block text-xs font-medium text-red-error mt-1">
               {errors.paymentMethod.message}
             </span>
           )}
         </div>
-      </div>
+      </section>
 
       <section className="flex flex-col h-[600px]">
         <h1 className="text-base-subtitle font-baloo2 font-bold text-lg mt-10 mb-[15px]">
@@ -204,7 +215,7 @@ export default function Formulario() {
               <Link href={'/'}>
                 <button
                   className="mt-3 
-              border border-gray-500 rounded px-3 py-3 bg-yellow-light hover:bg-yellow ease-in-out"
+              border border-gray-500 rounded px-3 py-3 bg-yellow hover:bg-yellow-dark text-white ease-in-out"
                 >
                   Clique aqui para retornar para compras
                 </button>
