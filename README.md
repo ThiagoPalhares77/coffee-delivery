@@ -9,6 +9,7 @@ The project simulates a coffee sales website, where the cart is made using React
 ## Main Project Technologies
 
 - Next.js
+- React
 - TailwindCSS
 - React-hook-form
 
